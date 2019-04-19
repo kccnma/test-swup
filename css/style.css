@@ -3,21 +3,40 @@
 .transition-fade {
   transition: all .5s ease-out;
   opacity: 1;
+  animation: .5s scalein ease forwards;
 }
 .is-animating .transition-fade {
   opacity: 0;
 }
-
 .is-leaving .transition-fade {
   opacity: 0;
+  animation: .5s scaleout ease forwards;
 }
 
+@keyframes scaleout {
+  0%   { 
+    transform: scale(1); 
+  }
+  100% { 
+    transform: scale(.95); 
+  }
+}
+
+@keyframes scalein {
+  0%   { 
+    transform: scale(.95); 
+  }
+  100% { 
+    transform: scale(1); 
+  }
+}
+
+/* DEMO STYLES */
 h2 {
   padding: 3em 0;
   text-align: center;
   color: #fff;
 }
-
 .page-home h2 {
   background: red;
 }
