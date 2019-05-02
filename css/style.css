@@ -37,24 +37,51 @@ h2 {
   text-align: center;
   color: #fff;
 }
-.page-home h2 {
-  background: red;
-}
-.page-about h2 {
-  background: green;
-}
+.page-home h2 { background: red; }
+.page-about h2 { background: green; }
 
 header {
   display: flex;
   justify-content: space-between;
 }
 
+a { color: #000; text-decoration: none; }
+.page-home a { color: red }
+.page-about a { color: green }
+
 nav ul {
   display: flex;
   list-style: none;
+  position: relative;
+  padding: 0;
+}
+
+nav li {
+  margin: 0
 }
 
 nav a {
   display: block;
   padding: 1em;
+}
+
+nav ul::after {
+  display: block;
+  content: "";
+  background: red;
+  height: 2px;
+  width: 50%;
+  position: absolute;
+  bottom: 0;
+  transition: .4s ease-out all;
+}
+
+.page-home nav ul::after {
+  transform: translate(0,0);
+  background: red;
+}
+
+.page-about nav ul::after {
+  transform: translate(100%,0);
+  background: green;
 }
