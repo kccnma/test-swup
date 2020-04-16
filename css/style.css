@@ -1,63 +1,125 @@
 /* PAGE ANIMATIONS */
 
 .transition-fade {
-  transition: all .5s ease-out;
+  transition: all 0.5s ease-out;
   opacity: 1;
-  animation: .5s scalein ease forwards;
+  animation: 0.5s scalein ease forwards;
 }
 .is-animating .transition-fade {
   opacity: 0;
 }
 .is-leaving .transition-fade {
   opacity: 0;
-  animation: .5s scaleout ease forwards;
+  animation: 0.5s scaleout ease forwards;
 }
 
 @keyframes scaleout {
-  0%   { 
-    transform: scale(1); 
+  0% {
+    transform: scale(1);
   }
-  100% { 
-    transform: scale(.95); 
+  100% {
+    transform: scale(0.95);
   }
 }
 
 @keyframes scalein {
-  0%   { 
-    transform: scale(.95); 
+  0% {
+    transform: scale(0.95);
   }
-  100% { 
-    transform: scale(1); 
+  100% {
+    transform: scale(1);
   }
 }
 
 /* DEMO STYLES */
-h2 {
-  padding: 3em 0;
-  text-align: center;
-  color: #fff;
-}
-.page-home h2 { background: red; }
-.page-about h2 { background: green; }
 
-header {
+* { box-sizing: border-box;}
+body { margin: 0; }
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+section { padding: 3em 0;}
+
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.site-header {
   display: flex;
   justify-content: space-between;
+  padding: 0 1em;
+  position: absolute;
+  width: 100%;
 }
 
-a { color: #000; text-decoration: none; }
-.page-home a { color: red }
-.page-about a { color: green }
+.site-header a,
+.page-home .site-header a,
+.page-about .site-header a {
+  color: #fff;
+}
+
+.site-footer { margin-top: 6em;}
+
+.hero {
+  padding: 8em 1em 7em 1em;
+  text-align: center;
+  background: black;
+  transition: all 0.3s ease-out;
+  margin-bottom: 1em;
+  color: #fff;
+  text-align: center;
+}
+
+.hero div {
+  display: none;
+  transition: all 0.3s ease-out;
+}
+
+.page-home .hero .hero-home {
+  display: block;
+}
+
+.page-about .hero .hero-about {
+  display: block;
+}
+
+.page-home .hero {
+  padding: 11em 1em 10em 1em;
+  background: red;
+}
+.page-about .hero {
+  background: green;
+}
+
+.page-home a,
+.page-home h2 {
+  color: red;
+}
+.page-about a,
+.page-about h2 {
+  color: green;
+}
 
 nav ul {
   display: flex;
   list-style: none;
   position: relative;
   padding: 0;
+  justify-content: center;
 }
 
 nav li {
-  margin: 0
+  margin: 0;
 }
 
 nav a {
@@ -65,7 +127,8 @@ nav a {
   padding: 1em;
 }
 
-nav ul::after {
+/* ANIMATED SELECTED STATE ON NAV (REQUIRES MANUAL TWEAKING) */
+/* header nav ul::after {
   display: block;
   content: "";
   background: red;
@@ -73,15 +136,16 @@ nav ul::after {
   width: 50%;
   position: absolute;
   bottom: 0;
-  transition: .4s ease-out all;
+  transition: 0.4s ease-out all;
 }
 
-.page-home nav ul::after {
-  transform: translate(0,0);
+.page-home header nav ul::after {
+  transform: translate(0, 0);
   background: red;
 }
 
-.page-about nav ul::after {
-  transform: translate(100%,0);
+.page-about header nav ul::after {
+  transform: translate(100%, 0);
   background: green;
-}
+} */
+
